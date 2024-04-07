@@ -5,10 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Pagination from './layouts/Pagination.js';
+import Loading from './layouts/Loading.js';
 import '../App.css'; 
 
 export default function Producto() {
-  const { productos } = useGlobalContext();
+  const { productos, loading } = useGlobalContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
 
@@ -19,6 +20,10 @@ export default function Producto() {
 
   // Cambiar de página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="main-container">
