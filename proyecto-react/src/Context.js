@@ -13,7 +13,6 @@ const AppProvider = ({ children }) => {
       const dataProductos = await response_productos.json();
       setProductos(dataProductos);
       setLoading(false)
- 
   }
 
     useEffect( () => {
