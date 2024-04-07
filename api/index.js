@@ -6,7 +6,9 @@ const path = require('path');
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '../proyecto-react//build')));
+let filePath = path.join(process.cwd(), '/proyecto-react/build');
+
+app.use(express.static(filePath));
 
 app.get('/productos', (req, res) => {
     res.json(data); 
